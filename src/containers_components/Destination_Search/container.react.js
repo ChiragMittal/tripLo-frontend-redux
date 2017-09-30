@@ -8,20 +8,28 @@ import axios from 'axios';
 
 
 class Container extends React.Component {
-  getInitialState() {
-    return {
+  constructor(props) {
+    super(props)
+    this.state = {
       showingInfoWindow: false,
       activeMarker: {},
-      selectedPlace: {},
-
+      selectedPlace: {}
     }
   }
+  // getInitialState() {
+  //   return {
+  //     showingInfoWindow: false,
+  //     activeMarker: {},
+  //     selectedPlace: {},
 
-  /* componentDidMount: function () {
-         var mapOptions = {
-             center: this.mapCenterLatLng(43.642,-79.407),
-      }
-   },*/
+  //   }
+  // }
+
+  // componentDidMount() {
+  //   var mapOptions = {
+  //     center: this.mapCenterLatLng(43.642, -79.407),
+  //   }
+  // }
 
   onMarkerClick(props, marker, e) {
     this.setState({
@@ -80,7 +88,7 @@ class Container extends React.Component {
           visible={this.state.showingInfoWindow}
           onClose={this.onInfoWindowClose}>
           <div>
-            <h1>{this.state.selectedPlace.name}</h1>
+            <h1>{Object.keys(this.state.selectedPlace).length ? 'this.state.selectedPlace.name' : ''}</h1>
           </div>
         </InfoWindow>
       </Map>

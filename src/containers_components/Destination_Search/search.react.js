@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
 import Autosuggest from 'react-autosuggest';
-var tripAPI = require('../API/tripAPI.js');
+
+// var AppDispatcher =require('../Dispatcher/AppDispatcher');
+// var FluxCartActions = require('../Actions/FluxCartActions');
+var tripAPI = require('../../APIs/trip.api.js');
 //import { AutoComplete }     from 'material-ui';
 //import JSONP                from 'jsonp';
 //import getMuiTheme          from 'material-ui/styles/getMuiTheme';
 //import MuiThemeProvider     from 'material-ui/styles/MuiThemeProvider';
 //import injectTapEventPlugin from 'react-tap-event-plugin';
- 
+
 //injectTapEventPlugin();
 
 var languages = [
@@ -18,7 +21,7 @@ var languages = [
     name: 'Mumbai',
     //year: 2012
   },
-  
+
 ];
 
 // Teach Autosuggest how to calculate suggestions for any given input value.
@@ -35,9 +38,9 @@ const getSuggestions = value => {
 // based on the clicked suggestion. Teach Autosuggest how to calculate the
 // input value for every given suggestion.
 const getSuggestionValue = suggestion => {
- tripAPI.fetch_data(suggestion.name); 
- //alert(suggestion.name);
- return suggestion.name;
+  tripAPI.fetch_data(suggestion.name);
+  //alert(suggestion.name);
+  return suggestion.name;
 }
 
 // Use your imagination to render suggestions.
@@ -47,7 +50,7 @@ const renderSuggestion = suggestion => (
   </div>
 );
 
-class SearchApp extends React.Component {
+class App extends React.Component {
   constructor() {
     super();
 
@@ -63,7 +66,7 @@ class SearchApp extends React.Component {
   }
 
 
-onChange = (event, { newValue }) => {
+  onChange = (event, { newValue }) => {
     this.setState({
       value: newValue
     });
@@ -73,11 +76,11 @@ onChange = (event, { newValue }) => {
   };
 
   // replace_data = ({ destination_data }) => {
-    
+
   //        languages=destination_data;
   // };
 
-  replace_data(destination_data){
+  replace_data(destination_data) {
     languages = destination_data;
   }
 
@@ -120,4 +123,4 @@ onChange = (event, { newValue }) => {
   }
 }
 
-export default SearchApp;
+export default App;

@@ -7,7 +7,7 @@ class App extends Component {
 
   render() {
     let appProps = this.props;
-    let { auth } = this.props;
+    let { Auth } = this.props;
     return (
       <div>
         <AppsRoutes {...appProps} />
@@ -19,7 +19,7 @@ class App extends Component {
 }
 
 App.propTypes = {
-  auth: PropTypes.object
+  Auth: PropTypes.object
 }
 
 export default App;

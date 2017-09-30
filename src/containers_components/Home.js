@@ -22,13 +22,13 @@ export default class HomePage extends Component {
     }
 
     render() {
-        console.log(JSON.stringify(this.props.auth))
-        var isLoggedIn = AUTH.isLoggedIn(this.props.auth)
+        console.log(JSON.stringify(this.props.Auth))
+        var isLoggedIn = AUTH.isLoggedIn(this.props.Auth)
         let link = (isLoggedIn) ? <a href="#logout" onClick={this.handleLogout.bind(this)}>Logout</a> : <Link to="/login">Login</Link>
         return (
             <div>
                 <h1>HOME</h1>
-                {isLoggedIn ? 'Welcome ' + this.props.auth.username + ' ' : 'You have to '} {link}
+                {isLoggedIn ? 'Welcome ' + this.props.Auth.username + ' ' : 'You have to '} {link}
             </div >
         );
     }

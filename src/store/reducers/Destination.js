@@ -2,7 +2,7 @@ import * as ACTION from '../../actions/fluxcartActions'
 
 const initialState = {
 	cartVisible: false,
-	destination: null,
+	destinations: null,
 	index: null,
 	id: null,
 	name: null,
@@ -15,7 +15,7 @@ export default function Destination(state = initialState, action) {
 	switch (action.type) {
 		case ACTION.RECEIVE_DATA:
 			return Object.assign({}, state, {
-				destination: action.payload.data
+				destinations: action.payload.data
 			})
 		case ACTION.SELECT_PRODUCT:
 			return Object.assign({}, state, {

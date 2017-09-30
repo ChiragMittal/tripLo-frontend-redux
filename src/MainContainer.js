@@ -7,7 +7,7 @@ import App from './App'
 // menghubungkan state yang ada di reducer dan store ke component
 function mapStateToProps(state) {
   return {
-    auth: state.auths
+    Auth: state.Auth
   }
 }
 

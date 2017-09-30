@@ -1,5 +1,5 @@
 import React from 'react'
-import { updateCartVisible, removeFromCart } from '../../actions/fluxcartActions'
+// import { updateCartVisible, removeFromCart } from '../../actions/fluxcartActions'
 
 import { Button } from 'react-bootstrap';
 
@@ -49,7 +49,7 @@ class FluxCart extends React.Component {
         </div>
         <div className='aaa'>
           <Button bsStyle="info" bsSize="large" className="view-cart" onClick={this.openCart}
-            disabled={Object.keys(this.props.products).length > 0 ? "" : "disabled"}>View
+            disabled={Object.keys(this.props.products).length > 0 ? false : true}>View
           ({this.props.count})
         </Button>
         </div>
@@ -58,5 +58,6 @@ class FluxCart extends React.Component {
   }
 
 };
+
 
 export default FluxCart;

@@ -25,41 +25,37 @@ function getCartState() {
   };
 }
 
-// Define main Controller View
 class FluxCartApp extends React.Component {
 
-  // Get initial state from stores
   getInitialState() {
     return getCartState();
   }
 
-  // Add change listeners to stores
   componentDidMount() {
-
+    console.log('aaa')
   }
 
-  // Remove change listeners from stores
   componentWillUnmount() {
-
+    console.log('000')
   }
 
-  // Render our child components, passing state via props
   render() {
+    console.log('bbb')
     return (
-      <div className="flux-cart-app">
+      // <div className="flux-cart-app">
 
-        <Container google={window.google} markers={this.props.Destination.mapMarkers} initialCenter={this.props.Destination.mapCentre} />
+      //   <Container google={window.google} markers={this.props.Destination.mapMarkers} initialCenter={this.props.Destination.mapCentre} />
 
-        <FluxCart products={this.props.Destination.cartItems} count={this.props.Destination.cartCount} visible={this.props.Destination.cartVisible} />
+      //   <FluxCart products={this.props.Destination.cartItems} count={this.props.Destination.cartCount} visible={this.props.Destination.cartVisible} />
 
-        {(this.props.Destination.product).map(function (value, index) {
-          return (
-            <FluxProduct product={value} />
-          )
-        })}
+      //   {(this.props.Destination.product).map(function (value, index) {
+      //     return (
+      //       <FluxProduct product={value} />
+      //     )
+      //   })}
 
-      </div>
-
+      // </div>
+      <h1>aaa</h1>
     );
   }
 

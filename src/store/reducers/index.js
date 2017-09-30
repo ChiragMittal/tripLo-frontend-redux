@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux'
-import auths from './auths'
+import Auth from './Auth'
 import Destination from './Destination'
 
 const AppReducer = combineReducers({
-  auths,
+  Auth,
   Destination,
   router: routerReducer
 })

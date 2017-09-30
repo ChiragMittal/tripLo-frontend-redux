@@ -4,7 +4,6 @@ const ACTION = require('../constants');
 
 
 export const receiveProduct = (data) => ({
-
   type: ACTION.RECEIVE_DATA,
   payload: {
     destination: data

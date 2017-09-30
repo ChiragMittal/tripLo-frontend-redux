@@ -7,7 +7,7 @@ const initialState = {
   loggedAt: null
 }
 
-export default function auth(state = initialState, action) {
+export default function Auth(state = initialState, action) {
   switch (action.type) {
     case LOGIN_ATTEMPT:
       return Object.assign({}, state, {

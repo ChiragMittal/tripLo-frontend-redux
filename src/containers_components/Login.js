@@ -12,7 +12,7 @@ export default class Login extends Component {
 
     componentWillMount() {
         // checking if the user has been logged in and is still valid
-        if (AUTH.isLoggedIn(this.props.auth))
+        if (AUTH.isLoggedIn(this.props.Auth))
             return this.props.history.push('/')
         // else
         //  // stay

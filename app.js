@@ -43,7 +43,7 @@ if (process.env.NODE_ENV != 'production') {
 
   store.subscribe(throttle(() => {
     saveState({
-      auths: store.getState().auths
+      Auth: store.getState().Auth
     })
   }, 1000))
 
@@ -75,7 +75,7 @@ else {
 
   store.subscribe(throttle(() => {
     saveState({
-      auths: store.getState().auths
+      Auth: store.getState().Auth
     })
   }, 1000))
 
