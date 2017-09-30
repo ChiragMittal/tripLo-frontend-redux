@@ -10,7 +10,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --config webpack.config.js",
-    "prod": "webpack -p --config webpack.prod.config.js"
+    "prod": "webpack -p --config webpack.config.js"
   },
   "author": "tipLo Team",
   "license": "ISC",
@@ -34,6 +34,7 @@
     "escape-html": "^1.0.3",
     "finalhandler": "^1.0.3",
     "fullcalendar": "^3.4.0",
+    "google-maps-react": "^1.1.0",
     "has-flag": "^2.0.0",
     "history": "^4.6.1",
     "is-buffer": "^1.1.5",
