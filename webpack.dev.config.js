@@ -3,14 +3,12 @@ var webpack = require('webpack')
 var CONFIG = require('./CONFIG')
 
 module.exports = {
-  // pake context buat change directorynya
-  entry://'./index.js',
+  entry:
   {
     'app': [
       'babel-polyfill',
       'react-hot-loader/patch',
       './app'
-      // './home.prod'
     ]
   },
   output: {
@@ -92,6 +90,6 @@ module.exports = {
     compress: true,
     publicPath: '/dist',
     port: CONFIG.APP_PORT
-    // dikasih contentbase buat ngubahnya
+    // content base for changing its content base
   }
 }
