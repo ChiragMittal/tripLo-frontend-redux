@@ -17,7 +17,7 @@ var NavBar = React.createClass({
         </li>
         <li className="search">
 
-          <App placeHolder={"where to plan"} />
+          <App placeHolder={"where to plan"} {...this.props} />
         </li>
         <li className="hello">
           <a href="../login.html">Sign In</a>

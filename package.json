@@ -60,6 +60,7 @@
     "query": "^0.2.0",
     "rand-token": "^0.3.0",
     "react": "^15.5.4",
+    "react-autosuggest": "^9.3.2",
     "react-bootstrap": "^0.31.0",
     "react-bootstrap-table": "^3.4.1",
     "react-bs-datatable": "^1.1.14",

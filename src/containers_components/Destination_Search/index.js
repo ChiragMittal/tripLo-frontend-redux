@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux'
 //import { CartStore } from '../../Stores/cartStore';
 //import { ProductStore } from '../../Stores/tripStore';
 //import { MapStore } from '../../Stores/mapStore';
@@ -41,15 +42,15 @@ class FluxCartApp extends React.Component {
 
     render() {
         let { Destination } = this.props
-        console.log(Destination)
-        return (Destination && Object.keys(Destination).length) ? this.renderSearchResult() : this.renderInitial()
+        console.log('Destination ' + JSON.stringify(Destination))
+        return (Destination && Destination.destinations && Destination.destinations.length) ? this.renderSearchResult() : this.renderInitial()
     }
 
     renderInitial() {
         return (
             <div className="flux-cart-app">
                 <h1>Initial page</h1>
-                <NavBar items={null} />
+                <NavBar items={null} {...this.props} />
                 <a className='btn-login btn'>asdadasda</a>
                 <Container google={window.google} markers={[]} initialCenter={{ lat: 28, lng: 79 }} />
 
@@ -66,26 +67,31 @@ class FluxCartApp extends React.Component {
     }
 
     renderSearchResult() {
-        console.log('bbb')
+
         return (
-            // <div className="flux-cart-app">
+            <div className="flux-cart-app">
 
-            //     <Container google={window.google} markers={this.props.Destination.mapMarkers} initialCenter={this.props.Destination.mapCentre} />
+                <Container google={window.google} markers={this.props.Destination.map} initialCenter={this.props.Destination.map[0]} />
 
-            //     <FluxCart products={this.props.Destination.cartItems} count={this.props.Destination.cartCount} visible={this.props.Destination.cartVisible} />
+                <FluxCart products={this.props.Destination.destinations} count={this.props.Destination.cartCount} visible={this.props.Destination.cartVisible} />
 
-            //     {(this.props.Destination.product).map(function (value, index) {
-            //         return (
-            //             <FluxProduct product={value} />
-            //         )
-            //     })}
+                {(this.props.Destination.destinations).map(function (value, index) {
+                    return (
+                        <FluxProduct product={value} />
+                    )
+                })}
 
-            // </div>
-            <h1>Search Result</h1>
+            </div>
+            // <h1>Search Result</h1>
         );
     }
 
 
 };
 
-export default FluxCartApp;
+const mapState = state => ({
+    Auth: state.Auth,
+    Destination: state.Destination
+})
+
+export default connect(mapState)(FluxCartApp);

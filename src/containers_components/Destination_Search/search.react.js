@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import Autosuggest from 'react-autosuggest';
 
+import * as tripAPI from '../../APIs/trip.api.js'
+
 // var AppDispatcher =require('../Dispatcher/AppDispatcher');
 // var FluxCartActions = require('../Actions/FluxCartActions');
-var tripAPI = require('../../APIs/trip.api.js');
+// var tripAPI = require('../../APIs/trip.api.js');
 //import { AutoComplete }     from 'material-ui';
 //import JSONP                from 'jsonp';
 //import getMuiTheme          from 'material-ui/styles/getMuiTheme';
@@ -12,17 +14,8 @@ var tripAPI = require('../../APIs/trip.api.js');
 
 //injectTapEventPlugin();
 
-var languages = [
-  {
-    name: 'Delhi',
-    //year: 1972
-  },
-  {
-    name: 'Mumbai',
-    //year: 2012
-  },
-
-];
+var languages = [];
+// let _this = this
 
 // Teach Autosuggest how to calculate suggestions for any given input value.
 const getSuggestions = value => {
@@ -37,11 +30,6 @@ const getSuggestions = value => {
 // When suggestion is clicked, Autosuggest needs to populate the input element
 // based on the clicked suggestion. Teach Autosuggest how to calculate the
 // input value for every given suggestion.
-const getSuggestionValue = suggestion => {
-  tripAPI.fetch_data(suggestion.name);
-  //alert(suggestion.name);
-  return suggestion.name;
-}
 
 // Use your imagination to render suggestions.
 const renderSuggestion = suggestion => (
@@ -65,13 +53,27 @@ class App extends React.Component {
     };
   }
 
+  getSuggestionValue = suggestion => {
+    let _this = this
+    tripAPI.fetch_data(suggestion.name)
+      .then((res) => {
+        console.log(JSON.stringify(_this.props))
+        _this.props.receiveMap(res.markers);
+        _this.props.receiveProduct(res.response);
+      })
+    //alert(suggestion.name);
+    return suggestion.name;
+  }
+
 
   onChange = (event, { newValue }) => {
     this.setState({
       value: newValue
     });
-
-    tripAPI.search_bar(newValue, this.replace_data);
+    tripAPI.search_bar(newValue)
+      .then((res) => {
+        languages = res.languages;
+      });
 
   };
 
@@ -79,10 +81,6 @@ class App extends React.Component {
 
   //        languages=destination_data;
   // };
-
-  replace_data(destination_data) {
-    languages = destination_data;
-  }
 
   // Autosuggest will call this function every time you need to update suggestions.
   // You already implemented this logic above, so just use it.
@@ -116,7 +114,7 @@ class App extends React.Component {
         suggestions={suggestions}
         onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
         onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-        getSuggestionValue={getSuggestionValue}
+        getSuggestionValue={this.getSuggestionValue}
         renderSuggestion={renderSuggestion}
         inputProps={inputProps} />
     );

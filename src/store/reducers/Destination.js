@@ -1,21 +1,21 @@
-import * as ACTION from '../../actions/fluxcartActions'
+import * as ACTION from '../../constants'
 
 const initialState = {
 	cartVisible: false,
-	destinations: null,
-	index: null,
-	id: null,
-	name: null,
-	query: null,
-	suggestion: null,
-	map: null
+	destinations: [],
+	index: 0,
+	id: 0,
+	name: '',
+	query: '',
+	suggestion: [],
+	map: []
 }
 
 export default function Destination(state = initialState, action) {
 	switch (action.type) {
 		case ACTION.RECEIVE_DATA:
 			return Object.assign({}, state, {
-				destinations: action.payload.data
+				destinations: action.payload.destination
 			})
 		case ACTION.SELECT_PRODUCT:
 			return Object.assign({}, state, {
@@ -40,11 +40,12 @@ export default function Destination(state = initialState, action) {
 			})
 		case ACTION.DESTINATIONHOT_SEARCHFETCH:
 			return Object.assign({}, state, {
-				suggestion: action.payload.data
+				suggestion: action.payload.suggestion
 			})
 		case ACTION.RECEIVEMAP_DATA:
+			console.log('map data')
 			return Object.assign({}, state, {
-				map: action.payload.data
+				map: action.payload.map
 			})
 
 		default:
