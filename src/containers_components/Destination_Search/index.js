@@ -8,6 +8,7 @@ import FluxCart from './tripcart.react.js';
 //var Container=require('./container.react.js');
 import Container from './container.react.js';
 import NavBar from './nav.react.js'
+import data from '../../data'
 
 //import NpsForecastMap from './container.react.js';
 
@@ -70,7 +71,7 @@ class FluxCartApp extends React.Component {
 
         return (
             <div className="flux-cart-app">
-
+                <NavBar items={data} />
                 <Container google={window.google} markers={this.props.Destination.map} initialCenter={this.props.Destination.map[0]} />
 
                 <FluxCart products={this.props.Destination.destinations} count={this.props.Destination.cartCount} visible={this.props.Destination.cartVisible} />
