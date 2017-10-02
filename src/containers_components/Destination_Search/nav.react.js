@@ -13,7 +13,7 @@ var NavBar = React.createClass({
     return (
       <ul className="menu">
         <li className="logo" id="logo">
-          <a href="homepage.html"><img src="../img/logo-white.png" /></a>
+          {/* <a href="homepage.html"><img src="../img/logo-white.png" /></a> */}
         </li>
         <li className="search">
 

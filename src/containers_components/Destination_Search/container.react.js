@@ -56,9 +56,9 @@ class Container extends React.Component {
   }
 
   render() {
-    if (!this.props.loaded) {
-      return <div>Loading...</div>
-    }
+    // if (!this.props.loaded) {
+    //   return <div>Loading...</div>
+    // }
 
     let markerClick = this.onMarkerClick;
     return (

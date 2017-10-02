@@ -29,6 +29,7 @@ export default class HomePage extends Component {
             <div>
                 <h1>HOME</h1>
                 {isLoggedIn ? 'Welcome ' + this.props.Auth.username + ' ' : 'You have to '} {link}
+                <br /><Link to="/destination/search">Destination Search</Link>
             </div >
         );
     }

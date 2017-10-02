@@ -295,7 +295,7 @@ export const fetch_data = (query) => {
                     lng: 72.8347,
                     name: 'Gateway of India',
                     description: 'Apollo Bhandar Colaba Mumbai Maharahstra,400001,India',
-                    image: 'download(4).jpg',
+                    image: '../../assets/img/delhi3.jpg',
                     inventory: 1
                 },
 

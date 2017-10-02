@@ -3,6 +3,7 @@ import * as ACTION from '../../constants'
 const initialState = {
 	cartVisible: false,
 	destinations: [],
+	favorites: [],
 	index: 0,
 	id: 0,
 	name: '',
@@ -22,17 +23,23 @@ export default function Destination(state = initialState, action) {
 				index: action.payload.index
 			})
 		case ACTION.CART_ADD:
+			console.log('cart add')
 			return Object.assign({}, state, {
-				id: action.payload.id,
-				name: action.payload.name
+				favorites: [...state.favorites,{
+					id: action.payload.id,
+					name: action.payload.name
+				}]
 			})
 		case ACTION.CART_REMOVE:
+			let fav = state.favorites
+			fav.splice(action.payload.idx,1)
 			return Object.assign({}, state, {
-				name: action.payload.name
-			})
+				favorites: fav
+				})
 		case ACTION.CART_VISIBLE:
+			console.log("cart visible")
 			return Object.assign({}, state, {
-				cartVisible: true
+				cartVisible: action.payload.cartVisible
 			})
 		case ACTION.CART_DESTINATIONHOT_SEARCH:
 			return Object.assign({}, state, {

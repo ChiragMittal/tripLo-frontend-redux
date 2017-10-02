@@ -2,7 +2,6 @@ var path = require('path')
 var webpack = require('webpack')
 
 module.exports = {
-  // pake context buat change directorynya
   entry:
   {
     'app': [

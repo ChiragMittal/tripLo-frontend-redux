@@ -1,5 +1,5 @@
 import React from 'react'
-import { addToCart, updateCartVisible } from '../../actions/fluxcartActions'
+//import { addToCart, updateCartVisible } from '../../actions/fluxcartActions'
 
 import { Button } from 'react-bootstrap';
 
@@ -14,9 +14,10 @@ class FluxProduct extends React.Component {
   addToCart(event) {
     let name = this.props.product.name;
     let id = this.props.product.id;
+    let _this = this
 
-    addToCart(id, name);
-    updateCartVisible(true);
+    _this.props.addToCart(id, name);
+    _this.props.updateCartVisible(true);
   }
 
   // Render product View
@@ -33,7 +34,7 @@ class FluxProduct extends React.Component {
           <img src={'public/img/' + imagePic} />
           <p className="description">{this.props.product.description}</p>
 
-          <Button bsStyle="success" bsSize="large" onClick={this.addToCart} >
+          <Button bsStyle="success" bsSize="large" onClick={this.addToCart.bind(this)} >
             Add
           </Button>
         </div>

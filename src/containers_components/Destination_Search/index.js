@@ -1,32 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux'
-//import { CartStore } from '../../Stores/cartStore';
-//import { ProductStore } from '../../Stores/tripStore';
-//import { MapStore } from '../../Stores/mapStore';
+
 import FluxProduct from './trip.react.js';
 import FluxCart from './tripcart.react.js';
-//var Container=require('./container.react.js');
 import Container from './container.react.js';
 import NavBar from './nav.react.js'
 import data from '../../data'
-
-//import NpsForecastMap from './container.react.js';
-
-
-// Method to retrieve state from Stores
-function getCartState() {
-    return {
-        product: {},
-        selectedProduct: {},
-        cartItems: {},
-        cartCount: {},
-        // cartTotal: CartStore.getCartTotal(),
-        cartVisible: {},
-        //,user: CartStore.getUserLoggedIn()            -> server request for logged in user data
-        mapMarkers: {},
-        mapCentre: {}
-    };
-}
 
 class FluxCartApp extends React.Component {
     constructor(props) {
@@ -50,35 +29,22 @@ class FluxCartApp extends React.Component {
     renderInitial() {
         return (
             <div className="flux-cart-app">
-                <h1>Initial page</h1>
                 <NavBar items={null} {...this.props} />
-                <a className='btn-login btn'>asdadasda</a>
-                <Container google={window.google} markers={[]} initialCenter={{ lat: 28, lng: 79 }} />
-
-                <FluxCart products={[]} count={0} visible={false} />
-
-                {([]).map(function (value, index) {
-                    return (
-                        <FluxProduct product={value} />
-                    )
-                })}
-
+                <h1>Initial page</h1>
             </div>
         )
     }
 
     renderSearchResult() {
-
+        let _this = this
         return (
             <div className="flux-cart-app">
-                <NavBar items={data} />
+                <NavBar items={null} {...this.props} />
                 <Container google={window.google} markers={this.props.Destination.map} initialCenter={this.props.Destination.map[0]} />
-
-                <FluxCart products={this.props.Destination.destinations} count={this.props.Destination.cartCount} visible={this.props.Destination.cartVisible} />
-
+                <FluxCart {...this.props} products={this.props.Destination.favorites} count={this.props.Destination.favorites.length} visible={this.props.Destination.cartVisible} />
                 {(this.props.Destination.destinations).map(function (value, index) {
                     return (
-                        <FluxProduct product={value} />
+                        <FluxProduct {..._this.props} product={value} />
                     )
                 })}
 

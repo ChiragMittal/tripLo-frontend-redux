@@ -17,12 +17,16 @@ $red : #df625f ;
   -o-transition: all $duration*1s ease-in ;
 }
 
-@import "_base";
-@import "_navs";
-@import "_login";
-@import "_admin";
-@import "_reset";
-@import "_other" ;
+// @import "_base";
+// @import "_navs";
+// @import "_login";
+// @import "_admin";
+// @import "_reset";
+// @import "_other" ;
+
+@import 'app.css';
+@import 'nav.css';
+@import 'style.css';
 
 /*
     Ukuran :
