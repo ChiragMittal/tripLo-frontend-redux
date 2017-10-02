@@ -25,6 +25,7 @@ class AppsRoutes extends Component {
         <Route exact path="/login" {...appProps} render={(props) => (<Login {...appProps} />)} />
         <Route exact path="/destination/search" render={(props) => (<DestinationSearch {...appProps} />)} />
         <Route exact path="/user" render={(props) => (<UserInfo {...appProps} />)} />
+        <Route exact path="/user/favourites" render={(props) => (<UserInfo {...appProps} />)} />
         {/* <Route exact path="/destination/search" render={(props) => (<FluxCartApp {...appProps} />)} /> */}
         {/* Accessing auth directly will bring to login page */}
         <Route component={NoMatch} />
