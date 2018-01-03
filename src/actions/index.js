@@ -195,4 +195,20 @@ export const loadPost = (data) => ({
     }
 })
 
+export const createPost = (data) => ({
+    type: ACTION.CREATE_POST,
+    payload: {
+        post: data
+    }
+})
+
+export const liked = (id, like) => ({
+    type: ACTION.LIKED,
+    payload: {
+        post_id: id,
+        post_like: like
+    }
+})
+
+
 

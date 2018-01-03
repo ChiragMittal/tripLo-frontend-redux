@@ -25,17 +25,14 @@ export default function Destination(state = initialState, action) {
 		case ACTION.CART_ADD:
 			console.log('cart add')
 			return Object.assign({}, state, {
-				favorites: [...state.favorites,{
-					id: action.payload.id,
-					name: action.payload.name
-				}]
+				favorites: [...state.favorites, { id: action.payload.id, name: action.payload.name }]
 			})
 		case ACTION.CART_REMOVE:
 			let fav = state.favorites
-			fav.splice(action.payload.idx,1)
+			fav.splice(action.payload.idx, 1)
 			return Object.assign({}, state, {
 				favorites: fav
-				})
+			})
 		case ACTION.CART_VISIBLE:
 			console.log("cart visible")
 			return Object.assign({}, state, {

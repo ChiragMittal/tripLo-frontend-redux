@@ -3,7 +3,8 @@ import * as ACTION from '../../constants'
 const initialState = {
     img: '',
     info: {},
-    post: []
+    post: [],
+
 }
 
 export default function User(state = initialState, action) {
@@ -29,7 +30,26 @@ export default function User(state = initialState, action) {
             return Object.assign({}, state, {
                 post: action.payload.post
             })
+        case ACTION.CREATE_POST:
+            console.log(action.payload.post)
+            return Object.assign({}, state, {
+                post: [action.payload.post, ...state.post]
 
+            })
+
+        case ACTION.LIKED:
+            var new_post = state.post
+            // searching index of a post with a specific post_id
+            for (var i = 0; i < new_post.length; i++) {
+                if (new_post[i].id == action.payload.post_id)
+                    break
+            }
+
+            new_post[i].likes = action.payload.post_like
+            new_post[i].liked = !new_post[i].liked
+            return Object.assign({}, state, {
+                post: new_post
+            })
 
         default:
             return state

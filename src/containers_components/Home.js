@@ -27,10 +27,11 @@ export default class HomePage extends Component {
         let link = (isLoggedIn) ? <a href="#logout" onClick={this.handleLogout.bind(this)}>Logout</a> : <Link to="/login">Login</Link>
         return (
             <div>
-                <h1>HOME</h1>
+                <h1>DASHBOARD</h1>
                 {isLoggedIn ? 'Welcome ' + this.props.Auth.username + ' ' : 'You have to '} {link}
                 <br /><Link to="/destination/search">Destination Search</Link>
                 <br /><Link to="/user">User</Link>
+                <br /><Link to="/homepage.html ">Home Page</Link>
             </div >
         );
     }

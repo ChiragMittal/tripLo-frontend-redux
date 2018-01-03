@@ -1,9 +1,20 @@
 import React from 'react';
-
+import { Glyphicon } from 'react-bootstrap';
+import * as userAPI from '../../../APIs/user'
 
 
 // Flux product view
 class FluxSinglePost extends React.Component {
+
+  changeLike(e) {
+    let _this = this;
+    userAPI.likePost(this.props.post.id)
+      .then((res) => {
+        //console.log(JSON.stringify(_this.props))
+        _this.props.liked(res.post_id, res.post_like);
+        //_this.props.receiveProduct(res.response);
+      })
+  }
 
 
 
@@ -19,6 +30,12 @@ class FluxSinglePost extends React.Component {
           <p className="post_time">{this.props.post.created_at}</p>
         </div>
         <p>{this.props.post.post}</p>
+
+        <div>
+          <a><i className="thums-up" onClick={this.changeLike.bind(this)}><Glyphicon glyph="thumbs-up" />{this.props.post.likes}</i></a>
+          <a href="#"><i className="pushpin"><Glyphicon glyph="pushpin" /></i></a>
+          <a href="#"><i className="share-alt"><Glyphicon glyph="share-alt" /></i></a>
+        </div>
       </div>
     );
   }

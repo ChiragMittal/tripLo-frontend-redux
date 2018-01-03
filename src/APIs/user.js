@@ -40,49 +40,9 @@ export const recievePost = (username, token, target) => {
                 foreignId: null,
                 foreignContent: null,
                 placeTypeTag: "country",
-                placeKeyTag: "India"
-            },
-            {
-                id: 87,
-                post: "The trip to Manali was AWESOME!!!",
-                type: 0,
-                pic: null,
-                username: "admin21",
-                created_at: "2017-01-12T17:53:08.000Z",
-                updated_at: "0000-00-00 00:00:00",
-                public_bool: 1,
-                foreignId: null,
-                foreignContent: null,
-                placeTypeTag: "country",
-                placeKeyTag: "India"
-            },
-            {
-                id: 85,
-                post: "blablabla",
-                type: 0,
-                pic: null,
-                username: "admin21",
-                created_at: "2017-01-07T03:12:31.000Z",
-                updated_at: "0000-00-00 00:00:00",
-                public_bool: 1,
-                foreignId: null,
-                foreignContent: null,
-                placeTypeTag: "country",
-                placeKeyTag: "India"
-            },
-            {
-                id: 84,
-                post: "blablabla",
-                type: 0,
-                pic: null,
-                username: "admin21",
-                created_at: "2017-01-07T03:12:30.000Z",
-                updated_at: "0000-00-00 00:00:00",
-                public_bool: 1,
-                foreignId: null,
-                foreignContent: null,
-                placeTypeTag: "country",
-                placeKeyTag: "India"
+                placeKeyTag: "India",
+                likes: 1241,
+                liked: true
             },
             {
                 id: 83,
@@ -96,7 +56,9 @@ export const recievePost = (username, token, target) => {
                 foreignId: null,
                 foreignContent: null,
                 placeTypeTag: "country",
-                placeKeyTag: "India"
+                placeKeyTag: "India",
+                likes: 1246,
+                liked: true
             },
             {
                 id: 82,
@@ -110,7 +72,9 @@ export const recievePost = (username, token, target) => {
                 foreignId: null,
                 foreignContent: null,
                 placeTypeTag: "country",
-                placeKeyTag: "India"
+                placeKeyTag: "India",
+                likes: 1248,
+                liked: false
             },
             {
                 id: 81,
@@ -124,7 +88,9 @@ export const recievePost = (username, token, target) => {
                 foreignId: null,
                 foreignContent: null,
                 placeTypeTag: "country",
-                placeKeyTag: "India"
+                placeKeyTag: "India",
+                likes: 1247,
+                liked: false
             }
         ];
 
@@ -134,3 +100,46 @@ export const recievePost = (username, token, target) => {
         })
     })
 }
+
+export const createPost = (post) => {
+    return new Promise((resolve, reject) => {
+
+        var single =
+            {
+                id: 70,
+                post: post,
+                type: 0,
+                pic: null,
+                username: "admin21",
+                created_at: "2017-01-07T03:11:08.000Z",
+                updated_at: "0000-00-00 00:00:00",
+                public_bool: 1,
+                foreignId: null,
+                foreignContent: null,
+                placeTypeTag: "country",
+                placeKeyTag: "India",
+                likes: 124,
+                liked: true
+            }
+
+        resolve({
+            success: true,
+            post: single
+        })
+    })
+}
+
+export const likePost = (id) => {
+    return new Promise((resolve, reject) => {
+
+        var post_like = 12;
+
+
+        resolve({
+            success: true,
+            post_id: id,
+            post_like: post_like
+        })
+    })
+}
+

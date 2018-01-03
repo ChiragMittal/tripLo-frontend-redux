@@ -8,6 +8,7 @@ import FluxInfo from './info.react.js';
 import FluxPictures from './pictures.react.js';
 import MultiPost from './Routing/multiPost.react'
 import FavouriteDestinations from './favourites_destination'
+import IconBar from '../../common/common-sideline'
 
 
 //import NpsForecastMap from './container.react.js';
@@ -34,6 +35,9 @@ class FluxUserApp extends React.Component {
         _this.props.loadPost(res.post);
         //_this.props.receiveProduct(res.response);
       })
+
+
+
 
   }
 
@@ -71,6 +75,7 @@ class FluxUserApp extends React.Component {
     return (
       <div className="flux-user-app">
 
+        <IconBar {...this.props} />
 
         <Grid>
           <Row className="show-grid">

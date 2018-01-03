@@ -22,4 +22,6 @@ export const DEL_PHOTO = 'DEL_PHOTO'
 export const EDIT_INFO = 'EDIT_INFO'
 export const RECIEVE_INFO = 'RECIEVE_INFO'
 export const LOAD_POST = 'LOAD_POST'
+export const CREATE_POST = 'CREATE_POST'
+export const LIKED = 'LIKED'
 

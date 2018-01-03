@@ -26,13 +26,14 @@ class MultiPost extends React.Component {
   // Render product View
   render() {
     var multipost = this.props.posts;
+    let _this = this
 
     //var imagePic = (this.props.user.image == null? 'default.png': this.props.user.image)
     return (
       <div className="flux-multi-post">
         <ul>
           {multipost.map(function (value, index) {
-            return (<FluxSinglePost post={value} />)
+            return (<FluxSinglePost post={value} {..._this.props} />)
           })}
         </ul>
       </div>

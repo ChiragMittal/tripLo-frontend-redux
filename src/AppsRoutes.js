@@ -21,6 +21,7 @@ class AppsRoutes extends Component {
 
       <Switch>
         {/* Will redirect to auth in booting app */}
+        <Route exact path="/homepage.html" />
         <Route exact path="/" render={(props) => (<Home {...appProps} />)} />
         <Route exact path="/login" {...appProps} render={(props) => (<Login {...appProps} />)} />
         <Route exact path="/destination/search" render={(props) => (<DestinationSearch {...appProps} />)} />
